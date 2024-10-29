@@ -4,6 +4,8 @@ const nodemailer = require("nodemailer");
 const User = require("../models/User");
 const dotenv = require("dotenv");
 const path = require("path");
+const FRONTEND_URL = process.env.FRONTEND_URL;
+
 
 // Load environment variablesauth
 dotenv.config({ path: path.join(__dirname, "../config.env") });
@@ -95,7 +97,7 @@ const forgotPassword = async (req, res) => {
       from: process.env.GMAIL_USER,
       to: email,
       subject: "Reset Password",
-      text: `Click the link to reset your password:${process.env.FRONTEND_URL}${token}`,
+      text: `Click the link to reset your password:${FRONTEND_URL}${token}`,
     };
 
     transporter.sendMail(mailOptions, (error) => {

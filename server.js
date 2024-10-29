@@ -28,7 +28,13 @@ app.use(express.json());
 // CORS setup - Allow credentials and both localhost:5173 and localhost:5174
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https://vasudevhealthcare.com",
+      "https://admin.vasudevhealthcare.com",
+      "https://server.vasudevhealthcare.com",
+    ],
     credentials: true,
   })
 );
